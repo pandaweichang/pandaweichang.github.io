@@ -160,7 +160,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/28/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%9E%84%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%EF%BC%88windown%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/13/%E7%A1%AC%E4%BB%B6/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E7%9A%84%E4%B8%89%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%8B%93%E6%89%91%E5%8E%9F%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -174,7 +174,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/05/28/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%9E%84%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%EF%BC%88windown%EF%BC%89/" class="post-title-link" itemprop="url">构建个人网站（windown）</a>
+            <a href="/2024/06/13/%E7%A1%AC%E4%BB%B6/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E7%9A%84%E4%B8%89%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%8B%93%E6%89%91%E5%8E%9F%E7%90%86/" class="post-title-link" itemprop="url">开关电源的三种基本拓扑原理</a>
         </h2>
 
         <div class="post-meta">
@@ -184,15 +184,28 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2024-05-28 10:45:53" itemprop="dateCreated datePublished" datetime="2024-05-28T10:45:53+08:00">2024-05-28</time>
+              <time title="创建时间：2024-06-13 00:00:00" itemprop="dateCreated datePublished" datetime="2024-06-13T00:00:00+08:00">2024-06-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-05-27 23:34:51" itemprop="dateModified" datetime="2024-05-27T23:34:51+08:00">2024-05-27</time>
+                <time title="修改时间：2024-06-14 16:16:10" itemprop="dateModified" datetime="2024-06-14T16:16:10+08:00">2024-06-14</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A1%AC%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">硬件</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A1%AC%E4%BB%B6/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/" itemprop="url" rel="index"><span itemprop="name">开关电源</span></a>
+                </span>
+            </span>
 
           
 
@@ -205,7 +218,176 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本文将通过git+hexo+obsidian的方式，构建一个个人网站。</p>
+          <h1 id="开关拓扑的演变"><a href="#开关拓扑的演变" class="headerlink" title="开关拓扑的演变"></a>开关拓扑的演变</h1><h2 id="尖峰电压的消除"><a href="#尖峰电压的消除" class="headerlink" title="尖峰电压的消除"></a>尖峰电压的消除</h2><p>上文中，我们了解到了，<strong>电感在开关关断瞬间，会产生尖峰电压</strong>。这种尖峰电压会导致电路元件的损毁，是我们不愿意看到的。为了消除这种现象，我们需要找一个办法来解决。<br>由此，在电路中<strong>加入了二极管，对电路进行续流，防止了尖峰电压的产生</strong>。</p>
+<h2 id="电容的作用"><a href="#电容的作用" class="headerlink" title="电容的作用"></a>电容的作用</h2><p><strong>为了使得电压输出的稳定，在输出回路中加入电容</strong>。电容具有两端电压无法突变的特性。这就类似与我们生活中常见的水塔。水塔在水压波动的时候，会自主调节一栋楼的水压，高水压的时候，存储，低水压的时候放出。电容的作用就类似水塔</p>
+<p>自此，就构建出来一个稳定的基本$DC-DC$开关拓扑的电路</p>
+<h1 id="三种开关拓扑"><a href="#三种开关拓扑" class="headerlink" title="三种开关拓扑"></a>三种开关拓扑</h1><p>我们了解到开关电源有基本的三种拓扑：$BUCK、BOOST、BUCK-BOOST$</p>
+<h2 id="交换结点（SW）"><a href="#交换结点（SW）" class="headerlink" title="交换结点（SW）"></a>交换结点（SW）</h2><p><strong>开关和二极管之间的结点</strong>，称为交换结点。每个$DC-DC$开关拓扑都有此结点（否则会有巨大的电压尖峰）</p>
+<p><strong>交换结点处不宜铺设太多的铜</strong>，否则会形成有效的电场天线。输出线可能会拾取辐射噪声传递给输出</p>
+<h2 id="为何是三种基本开关拓扑"><a href="#为何是三种基本开关拓扑" class="headerlink" title="为何是三种基本开关拓扑"></a>为何是三种基本开关拓扑</h2><p>多种方法可以构建既含有电感又能为电感电流提供续流回路的方法。</p>
+<p>但是，只有三种连接方式可以满足输入输出之间有公共导线（地参考点），如图<br><img src="image-20240614160549545.png" alt="image-20240614160549545.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/27/%E7%A1%AC%E4%BB%B6/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/%E5%9F%BA%E7%A1%80%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E6%8B%93%E6%89%91%E7%94%B5%E8%B7%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="pandaweichang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小郑的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/27/%E7%A1%AC%E4%BB%B6/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/%E5%9F%BA%E7%A1%80%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E6%8B%93%E6%89%91%E7%94%B5%E8%B7%AF/" class="post-title-link" itemprop="url">基础开关电源拓扑电路</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-05-27 00:00:00" itemprop="dateCreated datePublished" datetime="2024-05-27T00:00:00+08:00">2024-05-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-13 17:21:47" itemprop="dateModified" datetime="2024-06-13T17:21:47+08:00">2024-06-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A1%AC%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">硬件</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A1%AC%E4%BB%B6/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/" itemprop="url" rel="index"><span itemprop="name">开关电源</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h1><h2 id="电容"><a href="#电容" class="headerlink" title="电容"></a>电容</h2><p>特性：电容两端电压无法突变</p>
+<p>![[Pasted image 20240607170750.png]]<br>![[Pasted image 20240610035207.png]]<br>开关通断的时候，电容其电压电流的变化如图</p>
+<p>![[Pasted image 20240609041331.png]]<br>![[Pasted image 20240610041629.png]]</p>
+<h2 id="电感"><a href="#电感" class="headerlink" title="电感"></a>电感</h2><p>特性：电感两端电流无法突变</p>
+<p>![[Pasted image 20240610023659.png]]<br>![[Pasted image 20240610025441.png]]<br>开关通断时，电感电压电流变化如图</p>
+<h3 id="充电"><a href="#充电" class="headerlink" title="充电"></a>充电</h3><h3 id="放电"><a href="#放电" class="headerlink" title="放电"></a>放电</h3><h2 id="开关拓扑"><a href="#开关拓扑" class="headerlink" title="开关拓扑"></a>开关拓扑</h2><p>基础的开关电源拓扑就只有三种：BUCK（降压电路）、BOOST（升压电路）、BUCK-BOOST（升降压电路）</p>
+<h3 id="交换结点"><a href="#交换结点" class="headerlink" title="交换结点"></a>交换结点</h3><p>我们通常把开关管和电感连接的结点称为交换结点。在芯片中即为SW引脚</p>
+<h3 id="为何只有三种基本拓扑"><a href="#为何只有三种基本拓扑" class="headerlink" title="为何只有三种基本拓扑"></a>为何只有三种基本拓扑</h3><p>电感的放置位置不同，导致有 不同的DC-DC拓扑</p>
+<p>电感放置在输入：BOOST</p>
+<p>电感放置在输出：BUCK</p>
+<p>电感放置在地：BUCK-BOOST</p>
+<h1 id="BUCK"><a href="#BUCK" class="headerlink" title="BUCK"></a>BUCK</h1><h1 id="BOOST"><a href="#BOOST" class="headerlink" title="BOOST"></a>BOOST</h1><h1 id="BUCK-BOOST"><a href="#BUCK-BOOST" class="headerlink" title="BUCK-BOOST"></a>BUCK-BOOST</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/27/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%9E%84%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%EF%BC%88windown%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="pandaweichang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小郑的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/27/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%9E%84%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%EF%BC%88windown%EF%BC%89/" class="post-title-link" itemprop="url">构建个人网站（windown）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-05-27 00:00:00" itemprop="dateCreated datePublished" datetime="2024-05-27T00:00:00+08:00">2024-05-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-13 17:21:47" itemprop="dateModified" datetime="2024-06-13T17:21:47+08:00">2024-06-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>本文将通过github pages+hexo的方式，构建一个个人网站。</p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="Github-Pages是什么"><a href="#Github-Pages是什么" class="headerlink" title="Github Pages是什么"></a>Github Pages是什么</h3><p>是GitHub官方提供的一种免费的静态站点托管服务，可以在Github仓库里托管和发布自己的静态网站页面</p>
 <h3 id="Hexo是什么"><a href="#Hexo是什么" class="headerlink" title="Hexo是什么"></a>Hexo是什么</h3><p>一个静态博客框架，基于Node.js运行 </p>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p>下载并安装<a target="_blank" rel="noopener" href="https://git-scm.com/download/win">git</a></p>
@@ -300,64 +482,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/27/%E7%A1%AC%E4%BB%B6/%E5%9F%BA%E7%A1%80%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E6%8B%93%E6%89%91%E7%94%B5%E8%B7%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="pandaweichang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小郑的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/05/27/%E7%A1%AC%E4%BB%B6/%E5%9F%BA%E7%A1%80%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E6%8B%93%E6%89%91%E7%94%B5%E8%B7%AF/" class="post-title-link" itemprop="url">基础开关电源拓扑电路</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2024-05-27 00:00:00 / 修改时间：23:36:33" itemprop="dateCreated datePublished" datetime="2024-05-27T00:00:00+08:00">2024-05-27</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h1><h2 id="电容"><a href="#电容" class="headerlink" title="电容"></a>电容</h2><h2 id="电感"><a href="#电感" class="headerlink" title="电感"></a>电感</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
 
@@ -424,9 +548,17 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span>
       </div>
   </nav>
 </div>
