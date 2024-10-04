@@ -272,6 +272,169 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/27/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E7%94%A8hexo%E6%9E%84%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="pandaweichang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小郑的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/27/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E7%94%A8hexo%E6%9E%84%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" class="post-title-link" itemprop="url">构建个人网站</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-05-27 00:00:00" itemprop="dateCreated datePublished" datetime="2024-05-27T00:00:00+08:00">2024-05-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-15 16:31:33" itemprop="dateModified" datetime="2024-08-15T16:31:33+08:00">2024-08-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>本文将通过github pages+hexo的方式，构建一个个人网站。</p>
+<h2 id="简介">简介</h2>
+<h3 id="Github-Pages是什么">Github Pages是什么</h3>
+<p>是GitHub官方提供的一种免费的静态站点托管服务，可以在Github仓库里托管和发布自己的静态网站页面</p>
+<h3 id="Hexo是什么">Hexo是什么</h3>
+<p>一个静态博客框架，基于Node.js运行</p>
+<h2 id="准备工作">准备工作</h2>
+<h3 id="安装git">安装git</h3>
+<p>下载并安装<a target="_blank" rel="noopener" href="https://git-scm.com/download/win">git</a></p>
+<h3 id="安装Node-js">安装Node.js</h3>
+<p>下载并安装<a target="_blank" rel="noopener" href="https://git-scm.com/download/win">Node.js</a></p>
+<p>过程中要搭建的npm，Node.js已自带</p>
+<h3 id="梯子">梯子</h3>
+<p>操作过程中，部分步骤需要梯子。</p>
+<p>有梯子解决大部分问题</p>
+<hr>
+<p>下载完成后可以通过以下操作来查看是否下载成功</p>
+<p>Win+R后输入cmd进入命令提示符，输入以下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">git version</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p>成功后会显示相应的版本号</p>
+<h2 id="安装Hexo博客架构">安装Hexo博客架构</h2>
+<h3 id="下载hexo">下载hexo</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cil</span><br></pre></td></tr></table></figure>
+<p>npm指令中 npm install -g 是指全局下载。一般下载在C:\Users\xxxx\AppData\Roaming</p>
+<p>安装完成后输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+<p>查看版本</p>
+<h3 id="初始化hexo">初始化hexo</h3>
+<p>一般打开cmd是在C盘根目录下，初始化的文件夹位置会生成在根目录下</p>
+<p>我这里选择把文件放在其他位置，在选择好的位置E盘下新建文件夹MYblog</p>
+<p>进入对应文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">E:</span><br><span class="line"><span class="built_in">cd</span> MYblog</span><br><span class="line">hexo init blog </span><br></pre></td></tr></table></figure>
+<p>cd是进入对应文件夹操作</p>
+<p>完成后，会在进入了的MYblog文件夹下生成初始化文件并存放在你命名的blog文件夹里</p>
+<h3 id="安装npm">安装npm</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install </span><br></pre></td></tr></table></figure>
+<p>进入blog文件中，安装npm</p>
+<p>安装完成后会出现一些文件，部分文件作用如下</p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_config.yml</td>
+<td>网站配置文件</td>
+</tr>
+<tr>
+<td>package.json</td>
+<td>应用程序信息</td>
+</tr>
+<tr>
+<td>scaffolds</td>
+<td>模板文件夹(存放文章模板)</td>
+</tr>
+<tr>
+<td>source</td>
+<td>存放用户资源文件夹（所写文章存放）</td>
+</tr>
+<tr>
+<td>themes</td>
+<td>主题文件夹</td>
+</tr>
+</tbody>
+</table>
+<h3 id="启动服务站点">启动服务站点</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s </span><br></pre></td></tr></table></figure>
+<p>此时可以访问本地服务器进入网站<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a></p>
+<h2 id="使用github-page在GitHub建站访问">使用github page在GitHub建站访问</h2>
+<h3 id="新建github仓库">新建github仓库</h3>
+<p>打开<a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>,新建仓库(create a new repository)</p>
+<p>其中repository name格式必须为“<a target="_blank" rel="noopener" href="http://xn--github-8h6jw94g4v9a.github.io">github用户名.github.io</a>”</p>
+<p>打开仓库复制下仓库网址</p>
+<h3 id="指定仓库路径">指定仓库路径</h3>
+<p>打开_config.yml文件</p>
+<p>找到Deployment加上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: 所复制的仓库网址</span><br><span class="line">  branch: main(自己仓库的branch)(页面左上角)</span><br></pre></td></tr></table></figure>
+<h3 id="将hexo的站点推送到github上">将hexo的站点推送到github上</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog（已在blog文件夹操作的可忽略此步骤）</span><br><span class="line">npm  install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h3 id="配置git的用户名和邮箱">配置git的用户名和邮箱</h3>
+<p>在publish博客的文件，更新到github的过程中，需要配置git的用户名和邮箱</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"GitHub 用户名"</span></span><br><span class="line">git config --global user.email <span class="string">"GitHub 邮箱"</span></span><br></pre></td></tr></table></figure>
+<h3 id="推送博客站点文件到github">推送博客站点文件到github</h3>
+<p>以下指令要在命令提示符中进入blog文件夹中操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo c（清除之前生成的东西，可以不加）</span><br><span class="line">hexo g（生成静态文章）</span><br><span class="line">hexo d（部署文件到github）</span><br></pre></td></tr></table></figure>
+<p>完成后，输入"<a target="_blank" rel="noopener" href="http://xn--eqr924avxo.github.io">用户名.github.io</a>"即可进入博客页面。</p>
+<p>可能需要等待会刷新页面才会有博客更新</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/27/%E7%A1%AC%E4%BB%B6/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/AC-DC/%E6%95%B4%E6%B5%81%E7%94%B5%E8%B7%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -449,7 +612,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

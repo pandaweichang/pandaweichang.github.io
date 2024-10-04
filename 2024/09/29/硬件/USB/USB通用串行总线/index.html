@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="USB接口类型 分为 标准USB接口 Mini USB接口 Mico USB接口 type-C接口 标准USB接口    触点 功能（主机） 功能（设备）     1 VBus（4.75-5.25） VBus（4.75-5.25）   2 D- D-   3 D+ D+   4 GND（接地） GND（接地）    Mini USB接口    触点 功能     1 （）   2 D-   3 D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="USB通用串行总线">
+<meta property="og:url" content="http://example.com/2024/09/29/%E7%A1%AC%E4%BB%B6/USB/USB%E9%80%9A%E7%94%A8%E4%B8%B2%E8%A1%8C%E6%80%BB%E7%BA%BF/index.html">
+<meta property="og:site_name" content="小郑的个人博客">
+<meta property="og:description" content="USB接口类型 分为 标准USB接口 Mini USB接口 Mico USB接口 type-C接口 标准USB接口    触点 功能（主机） 功能（设备）     1 VBus（4.75-5.25） VBus（4.75-5.25）   2 D- D-   3 D+ D+   4 GND（接地） GND（接地）    Mini USB接口    触点 功能     1 （）   2 D-   3 D">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-09-29T09:02:25.000Z">
+<meta property="article:modified_time" content="2024-10-04T09:03:03.923Z">
+<meta property="article:author" content="pandaweichang">
+<meta property="article:tag" content="硬件">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2024/09/29/%E7%A1%AC%E4%BB%B6/USB/USB%E9%80%9A%E7%94%A8%E4%B8%B2%E8%A1%8C%E6%80%BB%E7%BA%BF/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>USB通用串行总线 | 小郑的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小郑的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/29/%E7%A1%AC%E4%BB%B6/USB/USB%E9%80%9A%E7%94%A8%E4%B8%B2%E8%A1%8C%E6%80%BB%E7%BA%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="pandaweichang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小郑的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          USB通用串行总线
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-09-29 17:02:25" itemprop="dateCreated datePublished" datetime="2024-09-29T17:02:25+08:00">2024-09-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-10-04 17:03:03" itemprop="dateModified" datetime="2024-10-04T17:03:03+08:00">2024-10-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A1%AC%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">硬件</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1>USB接口类型</h1>
+<p>分为<br>
+标准USB接口<br>
+Mini USB接口<br>
+Mico USB接口<br>
+type-C接口</p>
+<h2 id="标准USB接口">标准USB接口</h2>
+<table>
+<thead>
+<tr>
+<th>触点</th>
+<th>功能（主机）</th>
+<th>功能（设备）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>VBus（4.75-5.25）</td>
+<td>VBus（4.75-5.25）</td>
+</tr>
+<tr>
+<td>2</td>
+<td>D-</td>
+<td>D-</td>
+</tr>
+<tr>
+<td>3</td>
+<td>D+</td>
+<td>D+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GND（接地）</td>
+<td>GND（接地）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Mini-USB接口">Mini USB接口</h2>
+<table>
+<thead>
+<tr>
+<th>触点</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.452ex;" xmlns="http://www.w3.org/2000/svg" width="22.664ex" height="2.149ex" role="img" focusable="false" viewBox="0 -750 10017.6 950"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></g><g data-mml-node="TeXAtom" transform="translate(616,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g><g data-mml-node="mi" transform="translate(759,0)"><path data-c="1D448" d="M107 637Q73 637 71 641Q70 643 70 649Q70 673 81 682Q83 683 98 683Q139 681 234 681Q268 681 297 681T342 682T362 682Q378 682 378 672Q378 670 376 658Q371 641 366 638H364Q362 638 359 638T352 638T343 637T334 637Q295 636 284 634T266 623Q265 621 238 518T184 302T154 169Q152 155 152 140Q152 86 183 55T269 24Q336 24 403 69T501 205L552 406Q599 598 599 606Q599 633 535 637Q511 637 511 648Q511 650 513 660Q517 676 519 679T529 683Q532 683 561 682T645 680Q696 680 723 681T752 682Q767 682 767 672Q767 650 759 642Q756 637 737 637Q666 633 648 597Q646 592 598 404Q557 235 548 205Q515 105 433 42T263 -22Q171 -22 116 34T60 167V183Q60 201 115 421Q164 622 164 628Q164 635 107 637Z"></path></g><g data-mml-node="mi" transform="translate(1526,0)"><path data-c="1D446" d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z"></path></g></g></g><g data-mml-node="mi" transform="translate(2201.1,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">（</text></g><g data-mml-node="mn" transform="translate(3201.1,0)"><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path data-c="2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z" transform="translate(500,0)"></path><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z" transform="translate(778,0)"></path></g><g data-mml-node="mi" transform="translate(4479.1,0)"><path data-c="1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></g><g data-mml-node="mo" transform="translate(5470.4,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mn" transform="translate(6470.6,0)"><path data-c="35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path><path data-c="2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z" transform="translate(500,0)"></path><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" transform="translate(778,0)"></path><path data-c="35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z" transform="translate(1278,0)"></path></g><g data-mml-node="mi" transform="translate(8248.6,0)"><path data-c="1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></g><g data-mml-node="mi" transform="translate(9017.6,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">）</text></g></g></g></svg></mjx-container></td>
+</tr>
+<tr>
+<td>2</td>
+<td>D-</td>
+</tr>
+<tr>
+<td>3</td>
+<td>D+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>5</td>
+<td>GND（）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Mico-USB接口">Mico USB接口</h2>
+<h1>USB传输标准</h1>
+<table>
+<thead>
+<tr>
+<th>目前官方版本名</th>
+<th>官方市场代号</th>
+<th>原名</th>
+<th>传输速率</th>
+<th>工作方式</th>
+<th>差分对数</th>
+<th>模式</th>
+<th>电流</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Low-Speed</td>
+<td>Basic-SpeedUSB</td>
+<td>USB 1.0</td>
+<td>1.5Mbps</td>
+<td>半双工</td>
+<td>1</td>
+<td>单通道</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Full-Speed</td>
+<td>Basic-SpeedUSB</td>
+<td>USB 1.1</td>
+<td>12Mbps</td>
+<td>半双工</td>
+<td>1</td>
+<td>单通道</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>High-Speed</td>
+<td>高速Hi-SpeedUSB</td>
+<td>USB 2.0</td>
+<td>480Mbps</td>
+<td>半双工</td>
+<td>1</td>
+<td>单通道</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>USB 3.2 Gen1x1</td>
+<td>超高速USB5Gbps  <br>SuperSpeed USB 5Gbps</td>
+<td>USB 3.0<br>USB 3.1 Gen1</td>
+<td>5Gbps</td>
+<td>全双工</td>
+<td>2</td>
+<td>单通道</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>USB 3.2 Gen2x1</td>
+<td>超高速USB5Gbps  <br>SuperSpeed USB 10Gbps</td>
+<td>USB3.1<br>USB 3.1 Gen2</td>
+<td>10Gbps</td>
+<td>全双工</td>
+<td>2</td>
+<td>单通道</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>USB 3.2 Gen1x2</td>
+<td></td>
+<td></td>
+<td>10Gbps</td>
+<td>全双工</td>
+<td>2</td>
+<td>双通道</td>
+<td></td>
+<td>Type-C接口才能双通道</td>
+</tr>
+<tr>
+<td>USB 3.2 Gen2x2</td>
+<td>超高速USB 20Gbps  <br>SuperSpeed USB 20Gbps</td>
+<td></td>
+<td>20Gbps</td>
+<td>全双工</td>
+<td>2</td>
+<td>双通道</td>
+<td></td>
+<td>Type-C接口才能双通道</td>
+</tr>
+<tr>
+<td>USB4</td>
+<td></td>
+<td></td>
+<td>40Gbps</td>
+<td>全双工</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="USB3-0">USB3.0</h2>
+<p>USB 3.0引入了<strong>多一对差分信号</strong>，使得通信可以进行<strong>全双工</strong>。通信速度提升到<strong>480Mbps</strong>。向下兼容USB 2.0和USB 1.X。供电标准为<strong>900mA</strong></p>
+<table>
+<thead>
+<tr>
+<th>引脚</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VBUS</td>
+<td>供电引脚</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>回流地参考</td>
+</tr>
+<tr>
+<td>D+</td>
+<td>USB 2.0正差分信号</td>
+</tr>
+<tr>
+<td>D-</td>
+<td>USB 2.0负差分信号</td>
+</tr>
+<tr>
+<td>SSTX+</td>
+<td>USB 3.0正发送差分信号</td>
+</tr>
+<tr>
+<td>SSTX-</td>
+<td>USB 3.0负发送差分信号</td>
+</tr>
+<tr>
+<td>SSRX+</td>
+<td>USB 3.0正接收差分信号</td>
+</tr>
+<tr>
+<td>SSRX-</td>
+<td>USB 3.0负接收差分信号</td>
+</tr>
+<tr>
+<td>由于速率较高，且2.5Gbps的单路差分信号频段<strong>接近ISM频段</strong>，扩频后会覆盖ISM频段，无法滤波。要做好<strong>电磁屏蔽</strong>以及<strong>阻抗匹配</strong>。</td>
+<td></td>
+</tr>
+<tr>
+<td>PCB设计上，信号线不能分叉多路，必须使用<strong>MUX^[多路复用器，一般使用USB专用的差分多路复用器]</strong> 同时信号<strong>屏蔽接地^[法拉第电笼，隔绝信号干扰]</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="USB-3-1">USB 3.1</h3>
+<p>在3.1时期，USB 3.0改名为USB 3.1 Gen 1。<br>
+对比USB 3.0<br>
+传输速度提升到<strong>10Gbps</strong><br>
+编码方式的更改，由8b/10b改为<strong>128b/132b</strong>。编码损耗由20%降低到3%<br>
+供电最大100W，电压电流都会提高<br>
+同时USB type-C接口出现。</p>
+<h3 id="USB-3-2">USB 3.2</h3>
+<p>3.2时代，USB接口的速度提升到了<strong>20Gbps</strong>，同时建议厂家<strong>统一使用USB Type-C接口</strong><br>
+因为将PCIE的<strong>双通道技术</strong>应用到了Type-C接口，提高了USB的传输速度。同时也必须使用USB Type－C接口才能使用到更高的速率。<br>
+同时，先前的通信协议也改名</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>原名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USB 3.2 Gen1x1</td>
+<td>USB 3.0/USB 3.1 Gen1</td>
+</tr>
+<tr>
+<td>USB 3.2 Gen2x1</td>
+<td>USB 3.1 Gen2</td>
+</tr>
+<tr>
+<td>USB 3.2 Gen1x2</td>
+<td>\</td>
+</tr>
+<tr>
+<td>USB 3.2 Gen2x2</td>
+<td>\</td>
+</tr>
+</tbody>
+</table>
+<h2 id="USB-4">USB 4</h2>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A1%AC%E4%BB%B6/" rel="tag"># 硬件</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/09/23/%E7%A1%AC%E4%BB%B6/%E4%BF%9D%E6%8A%A4%E7%94%B5%E8%B7%AF/" rel="prev" title="电路保护">
+      <i class="fa fa-chevron-left"></i> 电路保护
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/09/29/%E7%A1%AC%E4%BB%B6/USB/Type-C%20CC%E7%BA%BF/" rel="next" title="Type-C CC线">
+      Type-C CC线 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">USB接口类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E5%87%86USB%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.1.</span> <span class="nav-text">标准USB接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mini-USB%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.2.</span> <span class="nav-text">Mini USB接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mico-USB%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.3.</span> <span class="nav-text">Mico USB接口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">USB传输标准</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#USB3-0"><span class="nav-number">2.1.</span> <span class="nav-text">USB3.0</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#USB-3-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">USB 3.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#USB-3-2"><span class="nav-number">2.1.2.</span> <span class="nav-text">USB 3.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#USB-4"><span class="nav-number">2.2.</span> <span class="nav-text">USB 4</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">pandaweichang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">pandaweichang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
